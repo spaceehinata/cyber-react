@@ -1,0 +1,111 @@
+.popPic {
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 328px 272px;
+  overflow: hidden;
+}
+.popPic img {
+  align-self: center;
+}
+
+.popPic div {
+  display: flex;
+  align-content: center;
+}
+.picText {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: left;
+  gap: 8px;
+  margin-right: 48px;
+  margin-left: 44px;
+}
+.playstation {
+  grid-column: span 2;
+  overflow: hidden;
+}
+.macbook {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-color: #ededed;
+}
+.vision {
+  background-color: #353535;
+  color: #ffffff;
+}
+.airpod {
+  background-color: #ededed;
+}
+
+.picText p:first-of-type {
+  font-weight: 100;
+  font-size: 64px;
+  line-height: 56px;
+}
+
+.picText p:nth-child(2) {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #909090;
+}
+.popPic span {
+  font-weight: 500;
+  font-size: 49px;
+  line-height: 40px;
+  letter-spacing: 0%;
+}
+.airpod p:first-of-type,
+.vision p:first-of-type,
+.vision span,
+.airpod span {
+  line-height: 40px;
+  font-size: 29px;
+  font-weight: 500;
+}
+.airpod p:first-of-type,
+.vision p:first-of-type {
+  font-weight: 300;
+}
+
+.picText #shopNow {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  border: solid 1px #000000;
+  color: #000000;
+}
+.macbook span {
+  font-size: 64px;
+}
+.macbook .picText {
+  margin-inline: 56px 12px;
+}
+.vision .picText {
+  margin-left: 16px;
+}
+.airpod .picText {
+  margin-left: 48px;
+}
+#mobPic {
+  display: none;
+}
+#shopNow {
+  width: 191px;
+  height: 56px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#shopNow:hover {
+  background: white;
+  color: black;
+}
