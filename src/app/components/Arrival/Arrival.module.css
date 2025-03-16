@@ -1,0 +1,31 @@
+.arrivalsSection {
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .arrivals {
+    max-width: 1120px;
+    height: 1056px;
+    margin: 0 auto;
+  }
+  .arrivalsLine {
+    display: flex;
+    gap: 32px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 32px;
+    margin-top: 56px;
+  }
+  
+  .arrivalsLine a {
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+  }
+  
+  .arrivalsLine a:first-child {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+  }
+  
