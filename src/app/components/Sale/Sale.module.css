@@ -1,76 +1,76 @@
 .sec6 {
-    background-image: url("./asserts/Banner.png");
-    width: 100%;
-    height: 448px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .saleContent {
-    width: 553px;
-    /* height: 200px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-  }
-  .saleContent h1 {
-    font-weight: 100;
-    font-size: 72px;
-    line-height: 72px;
-    letter-spacing: -1%;
-  }
-  
-  .saleContent h1 span {
-    font-weight: 300;
-  }
-  
-  #secLine2 {
-    font-weight: 400 !important;
-    font-size: 16px;
-    line-height: 32px;
-    letter-spacing: 0%;
-    color: #909090;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  
-  .saleContent button {
-    width: 191px;
-    height: 56px;
-    font-size: 16px;
-    border: 2px solid #ffffff;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-  }
-  
-  .saleContent button:hover {
-    background: white;
-    color: black;
-  }
+  background-image: url("/asserts/Banner.png");
+  width: 100%;
+  height: 448px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #shopNow {
-    width: 191px;
-    height: 56px;
-    font-size: 16px;
-    border: 2px solid #ffffff;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-  }
-  
-  #shopNow:hover {
-    background: white;
-    color: black;
-  }
+.saleContent {
+  width: 553px;
+  /* height: 200px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.saleContent h1 {
+  font-weight: 100;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -1%;
+}
+
+.saleContent h1 span {
+  font-weight: 300;
+}
+
+#secLine2 {
+  font-weight: 400 !important;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  color: #909090;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.saleContent button {
+  width: 191px;
+  height: 56px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.saleContent button:hover {
+  background: white;
+  color: black;
+}
+
+#shopNow {
+  width: 191px;
+  height: 56px;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#shopNow:hover {
+  background: white;
+  color: black;
+}

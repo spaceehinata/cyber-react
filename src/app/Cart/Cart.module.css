@@ -104,7 +104,7 @@
 }
 
 .orderSummary {
-  height: 544px;
+  height: 608px;
   border: 1px solid #ebebeb;
   border-radius: 10px;
   display: flex;
@@ -131,8 +131,8 @@
   font-size: 14px;
   color: #979797;
   outline: none;
-  width: 408px;
-  height: 24px;
+  width: 424px;
+  height: 64px;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -160,8 +160,8 @@
   border: 1px solid #9f9f9f;
   font-size: 14px;
   color: #979797;
-  width: 392px;
-  height: 32px;
+  width: 424px;
+  height: 64px;
   justify-content: space-between;
   border-radius: 7px;
   border-width: 0.5px;

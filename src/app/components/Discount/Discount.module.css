@@ -1,74 +1,107 @@
 .discountSection {
-    width: 100%;
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .discount {
-    max-width: 1120px;
-    height: 656px;
-    margin: 0 auto;
-  }
-  
-  .disLine p {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    margin-top: 56px;
-  }
-  .centered {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    width: 343px;
-  }
-  
-  .product {
-    width: 236px;
-    height: 384px;
-    border-radius: 9px;
-    background: #f9f9f9;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 24px 16px;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  .product img:first-of-type {
-    align-self: flex-end;
-    cursor: pointer;
-  }
-  
-  #desc {
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  #price {
-    font-size: 24px;
-    font-weight: 600;
-    color: #000;
-    padding-bottom: 8px;
-  }
-  
-  .buyNow {
-    width: 191px;
-    height: 56px;
-    align-items: center;
-    gap: 8px;
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease;
-  }
-  
-  .buyNow:hover {
-    background: #444;
-  }
-  
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.discount {
+  max-width: 1120px;
+  height: 656px;
+  margin: 0 auto;
+}
+
+.disLine p {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-top: 56px;
+}
+.centered {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 343px;
+}
+.arrivalsSection {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+}
+.centered {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 343px;
+}
+
+.arrivals {
+  max-width: 1120px;
+  height: 1056px;
+  margin: 0 auto;
+}
+.arrivalsLine {
+  display: flex;
+  gap: 32px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 32px;
+  margin-top: 56px;
+}
+
+.arrivalsLine a {
+  text-decoration: none;
+  color: gray;
+  font-size: 16px;
+}
+
+.arrivalsLine a:first-child {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+.product {
+  width: 268px;
+  height: 432px;
+  border-radius: 9px;
+  background: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.product img:first-of-type {
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+#desc {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  padding-bottom: 8px;
+}
+.buyNow {
+  width: 191px;
+  height: 56px;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.buyNow:hover {
+  background: #444;
+}

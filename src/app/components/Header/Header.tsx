@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import Link from "next/link";
 
 type Props = {};
 
@@ -31,19 +32,19 @@ function Header({}: Props) {
           </ul>
         </div>
         <div className={styles.icons}>
-          <a href="#">
+          <Link href="#">
             <img src="./asserts/Favorites.svg" alt="like" />
-          </a>
-          <a href="cart.html">
+          </Link>
+          <Link href="/Cart">
             <img src="./asserts/Cart.svg" alt="chart" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link href="#">
             <img src="./asserts/User.svg" alt="user" />
-          </a>
+          </Link>
         </div>
-        <div className={styles.burger} onclick="toggleMenu()">
+        {/* <div className={styles.burger} onClick="toggleMenu()">
           ☰
-        </div>
+        </div> */}
       </div>
     </header>
   );
