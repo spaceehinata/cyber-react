@@ -4,8 +4,16 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import styles from "./Arrival.module.css";
 
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  favorite?: boolean;
+};
+
 export default function Arrival() {
-  const [discounts, setDiscounts] = useState([]);
+  const [discounts, setDiscounts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,6 +28,22 @@ export default function Arrival() {
         setLoading(false);
       });
   }, []);
+
+  const addToCart = (product: Product) => {
+    const cartItems: Product[] = JSON.parse(
+      localStorage.getItem("cart") || "[]"
+    );
+
+    const existingProduct = cartItems.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+    } else {
+      cartItems.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  };
 
   if (loading) return <p>Loading...</p>;
 
@@ -52,7 +76,12 @@ export default function Arrival() {
                   }}
                 ></p>
                 <p id={styles.price}>{product.price}</p>
-                <button className={styles.buyNow}>Buy Now</button>
+                <button
+                  className={styles.buyNow}
+                  onClick={() => addToCart(product)}
+                >
+                  Buy Now
+                </button>
               </div>
             ))
           ) : (
