@@ -1,43 +1,41 @@
-import styles from "./Category.module.css";
-type Props = {};
+import styles from "./Hero.module.css";
+import Image from "next/image";
 
-const Category = (props: Props) => {
+const Hero = () => {
   return (
-    <section className={styles.categorySection}>
-      <div className={styles.category}>
-        <div className={styles.categoryLine}>
-          <p>Browse By Category</p>
-          <img src="./asserts/Arrow`s.png" alt="arrows" />
+    <section className={styles.heroSection}>
+      <div className={styles.hero}>
+        <div className={styles.heroContent}>
+          <p id={styles.line1}>Pro.Beyond.</p>
+          <h1>
+            IPhone 14 <span>Pro</span>
+          </h1>
+          <p id={styles.line2}>
+            Created to change everything for the better. For everyone
+          </p>
+          <button id={styles.shopNow}>Shop Now</button>
         </div>
-        <div className={styles.categoryItems}>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Phones</p>
-          </div>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Smart Watches</p>
-          </div>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Cameras</p>
-          </div>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Headphones</p>
-          </div>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Computers</p>
-          </div>
-          <div className={styles.categoryBox}>
-            <img src="./asserts/Phones.svg" alt="Phones" />
-            <p>Gaming</p>
-          </div>
+
+        <div className={styles.heroImage}>
+          <Image
+            src="/asserts/Iphone Image.svg"
+            alt="iphone"
+            width={600}
+            height={600}
+          />
+        </div>
+
+        <div className={styles.heroMobImage}>
+          <Image
+            src="/asserts/mob-iphone.svg"
+            alt="mobile iphone"
+            width={300}
+            height={500}
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default Category;
+export default Hero;

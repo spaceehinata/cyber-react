@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import Image from "next/image";
 import styles from "./Arrival.module.css";
 
-type Product = {
+interface Product {
   id: number;
   name: string;
-  price: number;
+  price: string;
   image: string;
-  favorite?: boolean;
-};
+  favorite: boolean;
+  quantity?: number;  
+}
 
 export default function Arrival() {
   const [discounts, setDiscounts] = useState<Product[]>([]);
@@ -59,23 +61,31 @@ export default function Arrival() {
           {discounts.length > 0 ? (
             discounts.map((product) => (
               <div key={product.id} className={styles.product}>
-                <img
+                <Image
                   className={styles.favoriteIcon}
                   src={
                     product.favorite
-                      ? "./asserts/Favorite_filled.svg"
-                      : "./asserts/Favorite_duotone.svg"
+                      ? "/asserts/Favorite_filled.svg"
+                      : "/asserts/Favorite_duotone.svg"
                   }
-                  alt="Favorite"
+                  alt="Favorite Icon"
+                  width={24}
+                  height={24}
                 />
-                <img src={product.image} alt={product.name} />
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                />
                 <p
-                  id={styles.desc}
+                  className={styles.desc}
                   dangerouslySetInnerHTML={{
                     __html: product.name.replace(/(Graphite)/, "<br>$1"),
                   }}
                 ></p>
-                <p id={styles.price}>{product.price}</p>
+                <p className={styles.price}>{product.price}</p>
                 <button
                   className={styles.buyNow}
                   onClick={() => addToCart(product)}

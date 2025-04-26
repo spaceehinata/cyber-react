@@ -1,50 +1,71 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
-type Props = {};
-
-function Header({}: Props) {
+function Header() {
   return (
     <header className={styles.mheader}>
       <div className={styles.header}>
         <div className="logo">
-          <img src="./asserts/Logo.svg" alt="logo" />
+          <Image
+            src="/assets/Logo.svg"
+            alt="logo"
+            width={150} // Adjust based on your logo size
+            height={50}
+          />
         </div>
         <div className={styles.search}>
-          <img src="./asserts/Search.svg" alt="Search icon" />
+          <Image
+            src="/assets/Search.svg"
+            alt="Search icon"
+            width={20}
+            height={20}
+          />
           <input type="text" placeholder="Search" />
           <button>Search</button>
         </div>
         <div className={styles.nav}>
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="about.html">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <a href="contact.html">Contact Us</a>
+              <Link href="/contact">Contact Us</Link>
             </li>
             <li>
-              <a href="blog.html">Blog</a>
+              <Link href="/blog">Blog</Link>
             </li>
           </ul>
         </div>
         <div className={styles.icons}>
           <Link href="#">
-            <img src="./asserts/Favorites.svg" alt="like" />
+            <Image
+              src="/assets/Favorites.svg"
+              alt="Favorites"
+              width={20}
+              height={20}
+            />
           </Link>
-          <Link href="/Cart">
-            <img src="./asserts/Cart.svg" alt="chart" />
+          <Link href="/cart">
+            <Image
+              src="/assets/Cart.svg"
+              alt="Cart"
+              width={20}
+              height={20}
+            />
           </Link>
           <Link href="#">
-            <img src="./asserts/User.svg" alt="user" />
+            <Image
+              src="/assets/User.svg"
+              alt="User"
+              width={20}
+              height={20}
+            />
           </Link>
         </div>
-        {/* <div className={styles.burger} onClick="toggleMenu()">
-          ☰
-        </div> */}
       </div>
     </header>
   );

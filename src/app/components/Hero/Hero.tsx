@@ -1,25 +1,35 @@
 import styles from "./Hero.module.css";
-type Props = {};
+import Image from "next/image";
 
-const Hero = (props: Props) => {
+const Hero = () => {
   return (
     <section className={styles.heroSection}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <p id={styles.line1}>Pro.Beyond.</p>
+          <p className={styles.line1}>Pro.Beyond.</p>
           <h1>
-            IPhone 14 <span>Pro</span>
+            iPhone 14 <span>Pro</span>
           </h1>
-          <p id={styles.line2}>
-            Created to change everything for the better. For everyone
+          <p className={styles.line2}>
+            Created to change everything for the better. For everyone.
           </p>
-          <button id={styles.shopNow}>Shop Now</button>
+          <button className={styles.shopNow}>Shop Now</button>
         </div>
         <div className={styles.heroImage}>
-          <img src="./asserts/Iphone Image.svg" alt="iphone" />
+          <Image
+            src="/asserts/Iphone Image.svg"
+            alt="iphone"
+            width={600}
+            height={600}
+          />
         </div>
         <div className={styles.heroMobImage}>
-          <img src="./asserts/mob-iphone.svg" alt="iphone" />
+          <Image
+            src="/asserts/mob-iphone.svg"
+            alt="iphone mobile"
+            width={400}
+            height={400}
+          />
         </div>
       </div>
     </section>
