@@ -1,9 +1,7 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
 
-type Props = {};
-
-function Header({}: Props) {
+function Header() {
   return (
     <header className={styles.mheader}>
       <div className={styles.header}>

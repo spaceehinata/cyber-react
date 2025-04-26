@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image"; // Import Image from Next.js
 import styles from "./Cart.module.css";
 
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  image: string;
+  favorite?: boolean;
+  quantity: number;  // Make quantity a required field
+}
+
 export default function Home() {
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -23,15 +33,13 @@ export default function Home() {
     }
   }, []);
 
-  // Function to convert price to number
-  const getProductPrice = (item: any) => {
+  const getProductPrice = (item: Product): number => {
     if (!item || typeof item.price !== "string") {
       return 0;
     }
     return parseFloat(item.price.replace("$", "")) || 0;
   };
 
-  // Increase quantity function
   const increaseQuantity = (id: number) => {
     const updatedCart = cartItems.map((item) => {
       if (item.id === id) {
@@ -43,30 +51,30 @@ export default function Home() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  // Decrease quantity function
   const decreaseQuantity = (id: number) => {
     const updatedCart = cartItems
       .map((item) => {
         if (item.id === id) {
-          return item.quantity > 1
-            ? { ...item, quantity: item.quantity - 1 }
-            : null;
+          if (item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return undefined; // Instead of returning null, return undefined
         }
         return item;
       })
-      .filter(Boolean);
+      .filter((item): item is Product => item !== undefined);  // Remove undefined items
+  
     setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+  
 
-  // Remove item from cart
   const removeItem = (id: number) => {
     const updatedCart = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  // Calculate subtotal, tax, shipping, and total
   const subtotal = cartItems.reduce(
     (acc, item) => acc + getProductPrice(item) * (item.quantity || 1),
     0
@@ -75,9 +83,8 @@ export default function Home() {
   const shipping = cartItems.length > 0 ? 29 : 0;
   const total = subtotal + tax + shipping;
 
-  // Fallback image function
   const getProductImage = (image: string) => {
-    return image ? image : "asserts/empty.avif"; // Default empty cart image path
+    return image ? image : "/asserts/empty.avif"; // Default empty cart image path
   };
 
   return (
@@ -86,11 +93,13 @@ export default function Home() {
         <div className={styles.shoppingCart}>
           <h2>Shopping Cart</h2>
           {cartItems.length > 0 ? (
-            cartItems.map((item: any) => (
+            cartItems.map((item) => (
               <div key={item.id} className={styles.item}>
-                <img
-                  src={getProductImage(item.image)} // Use the fallback function here
+                <Image
+                  src={getProductImage(item.image)}
                   alt={item.name}
+                  width={200}  // Define width and height for optimization
+                  height={200}
                   className={styles.productImage}
                 />
                 <div className={styles.details}>
@@ -113,14 +122,13 @@ export default function Home() {
                         +
                       </button>
                       <p className={styles.price}>
-                        $$
-                        {(
-                          (getProductPrice(item) || 0) * (item.quantity || 1)
-                        ).toFixed(2)}
+                        ${((getProductPrice(item) || 0) * (item.quantity || 1)).toFixed(2)}
                       </p>
-                      <img
-                        src="./asserts/Close.svg"
+                      <Image
+                        src="/asserts/Close.svg"
                         alt="Close"
+                        width={24} 
+                        height={24}
                         className={styles.XIcon}
                         onClick={() => removeItem(item.id)}
                       />
@@ -130,9 +138,11 @@ export default function Home() {
               </div>
             ))
           ) : (
-            <img
+            <Image
               src={getProductImage("")}
               alt="Your cart is empty"
+              width={600}
+              height={400}
               className={styles.emptyCartImage}
             />
           )}
