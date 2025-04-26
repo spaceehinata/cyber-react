@@ -6,15 +6,16 @@ const Hero = () => {
     <section className={styles.heroSection}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <p className={styles.line1}>Pro.Beyond.</p>
+          <p id={styles.line1}>Pro.Beyond.</p>
           <h1>
-            iPhone 14 <span>Pro</span>
+            IPhone 14 <span>Pro</span>
           </h1>
-          <p className={styles.line2}>
-            Created to change everything for the better. For everyone.
+          <p id={styles.line2}>
+            Created to change everything for the better. For everyone
           </p>
-          <button className={styles.shopNow}>Shop Now</button>
+          <button id={styles.shopNow}>Shop Now</button>
         </div>
+
         <div className={styles.heroImage}>
           <Image
             src="/asserts/Iphone Image.svg"
@@ -23,12 +24,13 @@ const Hero = () => {
             height={600}
           />
         </div>
+
         <div className={styles.heroMobImage}>
           <Image
             src="/asserts/mob-iphone.svg"
-            alt="iphone mobile"
-            width={400}
-            height={400}
+            alt="mobile iphone"
+            width={300}
+            height={500}
           />
         </div>
       </div>

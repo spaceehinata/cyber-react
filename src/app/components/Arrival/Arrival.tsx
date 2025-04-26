@@ -2,20 +2,10 @@
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import Image from "next/image";
 import styles from "./Arrival.module.css";
 
-interface Product {
-  id: number;
-  name: string;
-  price: string;
-  image: string;
-  favorite: boolean;
-  quantity?: number;  
-}
-
 export default function Arrival() {
-  const [discounts, setDiscounts] = useState<Product[]>([]);
+  const [discounts, setDiscounts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,22 +21,6 @@ export default function Arrival() {
       });
   }, []);
 
-  const addToCart = (product: Product) => {
-    const cartItems: Product[] = JSON.parse(
-      localStorage.getItem("cart") || "[]"
-    );
-
-    const existingProduct = cartItems.find((item) => item.id === product.id);
-
-    if (existingProduct) {
-      existingProduct.quantity = (existingProduct.quantity || 1) + 1;
-    } else {
-      cartItems.push({ ...product, quantity: 1 });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  };
-
   if (loading) return <p>Loading...</p>;
 
   return (
@@ -61,37 +35,24 @@ export default function Arrival() {
           {discounts.length > 0 ? (
             discounts.map((product) => (
               <div key={product.id} className={styles.product}>
-                <Image
+                <img
                   className={styles.favoriteIcon}
                   src={
                     product.favorite
-                      ? "/asserts/Favorite_filled.svg"
-                      : "/asserts/Favorite_duotone.svg"
+                      ? "./asserts/Favorite_filled.svg"
+                      : "./asserts/Favorite_duotone.svg"
                   }
-                  alt="Favorite Icon"
-                  width={24}
-                  height={24}
+                  alt="Favorite"
                 />
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={200}
-                  height={200}
-                  objectFit="contain"
-                />
+                <img src={product.image} alt={product.name} />
                 <p
-                  className={styles.desc}
+                  id={styles.desc}
                   dangerouslySetInnerHTML={{
                     __html: product.name.replace(/(Graphite)/, "<br>$1"),
                   }}
                 ></p>
-                <p className={styles.price}>{product.price}</p>
-                <button
-                  className={styles.buyNow}
-                  onClick={() => addToCart(product)}
-                >
-                  Buy Now
-                </button>
+                <p id={styles.price}>{product.price}</p>
+                <button className={styles.buyNow}>Buy Now</button>
               </div>
             ))
           ) : (

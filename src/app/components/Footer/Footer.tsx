@@ -1,23 +1,22 @@
 import clsx from "clsx";
-import Image from "next/image";
 import styles from "./Footer.module.css";
 
-function Footer() {
+type Props = {};
+
+function Footer({}: Props) {
   return (
     <footer className={styles.rfooter}>
       <div className={styles.footer}>
         <div className={styles.footerSec1}>
           <div className={clsx(styles.footerSection, styles.about)}>
-            <Image
-              src="/assets/footer-logo.svg"
+            <img
+              src="./asserts/footer-logo.svg"
               alt="Cyber Logo"
               className={styles.footerLogo}
-              width={150} // Adjust to the logo's size
-              height={50}
             />
             <p>
-              We are a residential interior design firm located in Portland.
-              Our boutique studio offers more than just interior design services.
+              We are a residential interior design firm located in Portland. Our
+              boutique-studio offers more than
             </p>
           </div>
           <div className={styles.footerGrid}>
@@ -71,36 +70,16 @@ function Footer() {
         </div>
         <div className={styles.footerIcons}>
           <a href="#">
-            <Image
-              src="/assets/Twitter.svg"
-              alt="twitter"
-              width={30} // Adjust to the icon size
-              height={30}
-            />
+            <img src="./asserts/Twitter.svg" alt="twitter" />
           </a>
           <a href="#">
-            <Image
-              src="/assets/Facebook.svg"
-              alt="facebook"
-              width={30}
-              height={30}
-            />
+            <img src="./asserts/Facebook.svg" alt="facebook" />
           </a>
           <a href="#">
-            <Image
-              src="/assets/Tiktok.svg"
-              alt="tiktok"
-              width={30}
-              height={30}
-            />
+            <img src="./asserts/Tiktok.svg" alt="tiktok" />
           </a>
           <a href="#">
-            <Image
-              src="/assets/Instagram.svg"
-              alt="instagram"
-              width={30}
-              height={30}
-            />
+            <img src="./asserts/Instagram.svg" alt="instagram" />
           </a>
         </div>
       </div>
