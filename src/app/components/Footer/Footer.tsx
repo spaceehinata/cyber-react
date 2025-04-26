@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import styles from "./Footer.module.css";
-
+import Image from "next/image"; // Import Image from next/image
 
 function Footer() {
   return (
@@ -8,10 +8,12 @@ function Footer() {
       <div className={styles.footer}>
         <div className={styles.footerSec1}>
           <div className={clsx(styles.footerSection, styles.about)}>
-            <img
+            <Image
               src="./asserts/footer-logo.svg"
               alt="Cyber Logo"
               className={styles.footerLogo}
+              width={100} // Set the appropriate width
+              height={50} // Set the appropriate height
             />
             <p>
               We are a residential interior design firm located in Portland. Our
@@ -69,16 +71,36 @@ function Footer() {
         </div>
         <div className={styles.footerIcons}>
           <a href="#">
-            <img src="./asserts/Twitter.svg" alt="twitter" />
+            <Image
+              src="./asserts/Twitter.svg"
+              alt="twitter"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </a>
           <a href="#">
-            <img src="./asserts/Facebook.svg" alt="facebook" />
+            <Image
+              src="./asserts/Facebook.svg"
+              alt="facebook"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </a>
           <a href="#">
-            <img src="./asserts/Tiktok.svg" alt="tiktok" />
+            <Image
+              src="./asserts/Tiktok.svg"
+              alt="tiktok"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </a>
           <a href="#">
-            <img src="./asserts/Instagram.svg" alt="instagram" />
+            <Image
+              src="./asserts/Instagram.svg"
+              alt="instagram"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </a>
         </div>
       </div>

@@ -1,15 +1,26 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
+import Image from "next/image"; // Import Image from next/image
 
 function Header() {
   return (
     <header className={styles.mheader}>
       <div className={styles.header}>
         <div className="logo">
-          <img src="./asserts/Logo.svg" alt="logo" />
+          <Image
+            src="./asserts/Logo.svg" // Path to the image
+            alt="logo"
+            width={100} // Set the appropriate width
+            height={40} // Set the appropriate height
+          />
         </div>
         <div className={styles.search}>
-          <img src="./asserts/Search.svg" alt="Search icon" />
+          <Image
+            src="./asserts/Search.svg" // Path to the image
+            alt="Search icon"
+            width={24} // Set the appropriate width
+            height={24} // Set the appropriate height
+          />
           <input type="text" placeholder="Search" />
           <button>Search</button>
         </div>
@@ -31,13 +42,28 @@ function Header() {
         </div>
         <div className={styles.icons}>
           <Link href="#">
-            <img src="./asserts/Favorites.svg" alt="like" />
+            <Image
+              src="./asserts/Favorites.svg" // Path to the image
+              alt="like"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </Link>
           <Link href="/Cart">
-            <img src="./asserts/Cart.svg" alt="chart" />
+            <Image
+              src="./asserts/Cart.svg" // Path to the image
+              alt="chart"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </Link>
           <Link href="#">
-            <img src="./asserts/User.svg" alt="user" />
+            <Image
+              src="./asserts/User.svg" // Path to the image
+              alt="user"
+              width={24} // Set the appropriate width
+              height={24} // Set the appropriate height
+            />
           </Link>
         </div>
         {/* <div className={styles.burger} onClick="toggleMenu()">

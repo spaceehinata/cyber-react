@@ -3,13 +3,23 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import styles from "./Discount.module.css";
+import Image from "next/image";
+
+// Define the types for the product data
+interface Product {
+  id: string;
+  name: string;
+  image: string;
+  price: string;
+  favorite: boolean;
+}
 
 export default function Discount() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]); // Use typed state
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/Json/Products.json") // Corrected path
+    fetch("/Json/Products.json")
       .then((res) => res.json())
       .then((json) => {
         setProducts(json || []);
@@ -33,16 +43,24 @@ export default function Discount() {
           {products.length > 0 ? (
             products.map((product) => (
               <div key={product.id} className={styles.product}>
-                <img
+                <Image
                   className={styles.favoriteIcon}
                   src={
                     product.favorite
-                      ? "./asserts/Favorite_filled.svg"
-                      : "./asserts/Favorite_duotone.svg"
+                      ? "/asserts/Favorite_filled.svg" // Ensure this path is correct and inside public/
+                      : "/asserts/Favorite_duotone.svg"
                   }
                   alt="Favorite"
+                  width={24}
+                  height={24}
                 />
-                <img src={product.image} alt={product.name} />
+                {/* Corrected Image Path */}
+                <Image
+                  src={product.image.startsWith("./") ? product.image.replace("./", "/") : product.image} 
+                  alt={product.name}
+                  width={160}
+                  height={160}
+                />
                 <p
                   id={styles.desc}
                   dangerouslySetInnerHTML={{

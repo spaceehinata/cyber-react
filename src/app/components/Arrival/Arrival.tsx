@@ -3,9 +3,26 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import styles from "./Arrival.module.css";
+import Image from "next/image";
+
+// Define a type for the product data structure
+interface Product {
+  id: number;
+  name: string;
+  size: string;
+  color: string;
+  material: string;
+  price: string;
+  image: string;
+  buy_link: string;
+  model: string;
+  year: number;
+  favorite?: boolean; // Optional, assuming some products may have this property
+}
 
 export default function Arrival() {
-  const [discounts, setDiscounts] = useState([]);
+  // Specify the type for discounts state
+  const [discounts, setDiscounts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,16 +52,23 @@ export default function Arrival() {
           {discounts.length > 0 ? (
             discounts.map((product) => (
               <div key={product.id} className={styles.product}>
-                <img
+                <Image
                   className={styles.favoriteIcon}
                   src={
                     product.favorite
-                      ? "./asserts/Favorite_filled.svg"
-                      : "./asserts/Favorite_duotone.svg"
+                      ? "/asserts/Favorite_filled.svg"
+                      : "/asserts/Favorite_duotone.svg"
                   }
                   alt="Favorite"
+                  width={24} // Define width
+                  height={24} // Define height
                 />
-                <img src={product.image} alt={product.name} />
+                <Image
+                  src={product.image.startsWith("./") ? product.image.replace("./", "/") : product.image} 
+                  alt={product.name}
+                  width={160} // Set width as needed
+                  height={160} // Set height as needed
+                />
                 <p
                   id={styles.desc}
                   dangerouslySetInnerHTML={{
